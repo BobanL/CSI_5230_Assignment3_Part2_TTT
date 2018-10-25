@@ -27,24 +27,6 @@ public class TTT extends AppCompatActivity {
         testImage1 = findViewById(R.id.testImage1);
         testImage2 = findViewById(R.id.testImage2);
 
-        //Initialize all buttons for the game
-        for(int i = 0; i < 9; i++){
-            tttButton[i] = new TTTButton(i, getApplicationContext());
-            final int j = i;
-            tttButton[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(!buttonStart.isShown() && tttButton[j].getText().toString() == "") {
-                        player[current%2].register(tttButton[j], j);
-                        player[current%2].MarkCell(j);
-                        current++;
-                        turnLabel.setText("It is " + player[current%2].symbol + "'s turn");
-                    }
-                    checkEndGame();
-                }
-            });
-
-        }
 
 
         Intent intent = getIntent();
@@ -53,8 +35,8 @@ public class TTT extends AppCompatActivity {
         testImage1.setImageResource(getResources().getIdentifier(intent.getStringExtra(MainActivity.P1_IMAGE), "drawable", getPackageName()));
         testImage2.setImageResource(getResources().getIdentifier(intent.getStringExtra(SecondPlayer.P2_IMAGE), "drawable", getPackageName()));
 
-        player[0] = new Player(intent.getStringExtra(MainActivity.P1_NAME), intent.getStringExtra(MainActivity.P1_IMAGE));
-        player[1] = new Player(intent.getStringExtra(SecondPlayer.P2_NAME), intent.getStringExtra(SecondPlayer.P2_IMAGE));
+        player[0] = new Player(intent.getStringExtra(MainActivity.P1_IMAGE), intent.getStringExtra(MainActivity.P1_NAME));
+        player[1] = new Player(intent.getStringExtra(SecondPlayer.P2_IMAGE), intent.getStringExtra(SecondPlayer.P2_NAME));
 
         turnLabel = findViewById(R.id.textViewStatus);
         buttonStart = findViewById(R.id.buttonStart);
@@ -70,6 +52,36 @@ public class TTT extends AppCompatActivity {
         tttButton[6] = findViewById(R.id.button20);
         tttButton[7] = findViewById(R.id.button21);
         tttButton[8] = findViewById(R.id.button22);
+
+        buttonStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonStart.setVisibility(View.GONE);
+            }
+        });
+
+
+        //Initialize all buttons for the game
+        for(int i = 0; i < 9; i++){
+            tttButton[i].setIndex(i);
+            tttButton[i].setContext(getApplicationContext());
+            final int j = i;
+            tttButton[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    System.out.println(tttButton[j].getId());
+                    if(!buttonStart.isShown() && tttButton[j].getText().toString().equals("")) {
+                        player[current%2].register(tttButton[j], j);
+                        player[current%2].MarkCell(j);
+                        current++;
+                        String updateText = "It is " + player[current%2].symbol + "'s turn";
+                        turnLabel.setText(updateText);
+                    }
+                    checkEndGame();
+                }
+            });
+
+        }
     }
 
     private void checkEndGame() {
