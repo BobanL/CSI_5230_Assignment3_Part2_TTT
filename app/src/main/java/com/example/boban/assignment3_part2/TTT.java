@@ -1,17 +1,14 @@
 package com.example.boban.assignment3_part2;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class TTT extends AppCompatActivity {
-    TextView testText1, testText2 = null;
-    ImageView testImage1, testImage2 = null;
-
     TextView turnLabel = null;
     Button buttonStart, buttonRestart, buttonCancel = null;
     TTTButton tttButton[] = new TTTButton[9];
@@ -22,18 +19,8 @@ public class TTT extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ttt);
-        testText1 = findViewById(R.id.testText1);
-        testText2 = findViewById(R.id.testText2);
-        testImage1 = findViewById(R.id.testImage1);
-        testImage2 = findViewById(R.id.testImage2);
-
-
 
         Intent intent = getIntent();
-        testText1.setText(intent.getStringExtra(MainActivity.P1_NAME));
-        testText2.setText(intent.getStringExtra(SecondPlayer.P2_NAME));
-        testImage1.setImageResource(getResources().getIdentifier(intent.getStringExtra(MainActivity.P1_IMAGE), "drawable", getPackageName()));
-        testImage2.setImageResource(getResources().getIdentifier(intent.getStringExtra(SecondPlayer.P2_IMAGE), "drawable", getPackageName()));
 
         player[0] = new Player(intent.getStringExtra(MainActivity.P1_IMAGE), intent.getStringExtra(MainActivity.P1_NAME));
         player[1] = new Player(intent.getStringExtra(SecondPlayer.P2_IMAGE), intent.getStringExtra(SecondPlayer.P2_NAME));
@@ -57,9 +44,39 @@ public class TTT extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buttonStart.setVisibility(View.GONE);
+                String updateText = "It is " + player[current % 2].name + "'s turn";
+                turnLabel.setText(updateText);
             }
         });
 
+        buttonRestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Arrays.fill(player[0].dataCell, null);
+                //Arrays.fill(player[1].dataCell, null);
+                player[0].unRegister();
+                player[1].unRegister();
+                for (int i = 0; i < tttButton.length; i++) {
+                    tttButton[i].setEnabled(true);
+                }
+
+                current = 0;
+                String updateText = "It is " + player[current % 2].name + "'s turn";
+                turnLabel.setText(updateText);
+            }
+        });
+
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < tttButton.length; i++) {
+                    tttButton[i].setEnabled(false);
+                }
+                String updateText = "Cancelled.\n Press restart to play again.";
+                turnLabel.setText(updateText);
+                turnLabel.setGravity(Gravity.CENTER);
+            }
+        });
 
         //Initialize all buttons for the game
         for(int i = 0; i < 9; i++){
@@ -74,13 +91,12 @@ public class TTT extends AppCompatActivity {
                         player[current%2].register(tttButton[j], j);
                         player[current%2].MarkCell(j);
                         current++;
-                        String updateText = "It is " + player[current%2].symbol + "'s turn";
+                        String updateText = "It is " + player[current % 2].name + "'s turn";
                         turnLabel.setText(updateText);
                     }
                     checkEndGame();
                 }
             });
-
         }
     }
 
@@ -94,7 +110,7 @@ public class TTT extends AppCompatActivity {
                 (tttButton[0].getText().equals(tttButton[4].getText()) && tttButton[4].getText().equals(tttButton[8].getText()) && !tttButton[0].getText().equals("")) ||
                 (tttButton[2].getText().equals(tttButton[4].getText()) && tttButton[4].getText().equals(tttButton[6].getText()) && !tttButton[2].getText().equals(""))) {
 
-            turnLabel.setText(player[(current-1)%2].symbol + " Wins!");
+            turnLabel.setText(player[(current - 1) % 2].name + " Wins!");
             for(int i = 0; i < tttButton.length; i++) {
                 tttButton[i].setEnabled(false);
             }

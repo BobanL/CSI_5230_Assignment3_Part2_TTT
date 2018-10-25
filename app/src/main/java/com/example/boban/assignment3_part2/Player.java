@@ -26,4 +26,10 @@ public class Player {
 	public String getSymbol() {
 		return symbol;
 	}
+
+	public void unRegister() {
+		for (int i = 0; i < dataCell.length; i++) {
+			dataCell[i].clear();
+		}
+	}
 }

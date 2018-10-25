@@ -22,4 +22,12 @@ public class DataCell implements Observable{
 	public void registerObserver(Observer obs) {
 		observers.add(obs);
 	}
+
+	public void clear() {
+		for (int i = 0; i < observers.size(); i++) {
+			observers.get(i).update("");
+		}
+		observers.clear();
+	}
+
 }

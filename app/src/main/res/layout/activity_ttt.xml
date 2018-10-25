@@ -6,22 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".TTT">
 
-    <ImageView
-        android:id="@+id/testImage2"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testText2"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/textViewStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Turn"
+        android:text="Press Start to Begin"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +25,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button11"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
 
     <com.example.boban.assignment3_part2.TTTButton
@@ -45,8 +36,8 @@
         app:layout_constraintEnd_toStartOf="@+id/button02"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button00"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
-
     <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button02"
         android:layout_width="96dp"
@@ -55,6 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button01"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
 
 
@@ -66,6 +58,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button11"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/button00" />
 
     <com.example.boban.assignment3_part2.TTTButton
@@ -76,6 +69,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button12"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button10"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/button01" />
 
     <com.example.boban.assignment3_part2.TTTButton
@@ -86,6 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button11"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/button02" />
 
     <com.example.boban.assignment3_part2.TTTButton
@@ -96,6 +91,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button21"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/button10" />
 
     <com.example.boban.assignment3_part2.TTTButton
@@ -106,6 +102,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button22"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button20"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/button11" />
 
     <com.example.boban.assignment3_part2.TTTButton
@@ -116,37 +113,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button21"
+        android:textColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@+id/button12" />
-
-    <TextView
-        android:id="@+id/testText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button20" />
-
-    <TextView
-        android:id="@+id/testText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button22" />
-
-    <ImageView
-        android:id="@+id/testImage1"
-        android:layout_width="50dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testText1"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/buttonStart"
