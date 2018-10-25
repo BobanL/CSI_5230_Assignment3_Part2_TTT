@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button00"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button01"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -47,7 +47,7 @@
         app:layout_constraintStart_toEndOf="@+id/button00"
         app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button02"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -58,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
 
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button10"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -68,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button00" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button11"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -78,7 +78,7 @@
         app:layout_constraintStart_toEndOf="@+id/button10"
         app:layout_constraintTop_toBottomOf="@+id/button01" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button12"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -88,7 +88,7 @@
         app:layout_constraintStart_toEndOf="@+id/button11"
         app:layout_constraintTop_toBottomOf="@+id/button02" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button20"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -98,7 +98,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button10" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button21"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -108,7 +108,7 @@
         app:layout_constraintStart_toEndOf="@+id/button20"
         app:layout_constraintTop_toBottomOf="@+id/button11" />
 
-    <Button
+    <com.example.boban.assignment3_part2.TTTButton
         android:id="@+id/button22"
         android:layout_width="96dp"
         android:layout_height="96dp"
@@ -154,7 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="Button"
+        android:text="Start"
         app:layout_constraintEnd_toStartOf="@+id/buttonCancel"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +166,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:text="Button"
+        android:text="Restart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonCancel"
@@ -177,7 +177,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Button"
+        android:text="Cancek"
         app:layout_constraintEnd_toStartOf="@+id/buttonRestart"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/buttonStart"
